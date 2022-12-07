@@ -1,0 +1,6 @@
+__pycache__
+hosts/__pycache__
+.git
+.DS_Store
+.vscode
+.idea
