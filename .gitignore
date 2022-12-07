@@ -2,6 +2,7 @@ __pycache__
 .idea
 .vscode
 .DS_Store
+.env
 
 hosts/*
 !hosts/__init__.py

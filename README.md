@@ -27,7 +27,8 @@ Ou alors le lancer directement :
 pip install mitmproxy
 pip install tldextract
 
-mitmdump -s proxy.py --listen-host 0.0.0.0 --listen-port 8302 --ssl-insecure
+chmod a+x proxy.sh
+./proxy.sh
 ```
 
 Les ports accessibles :
@@ -46,6 +47,16 @@ Les ports accessibles :
     - Réglages > Général > Informations > Réglages des certificats (tout en bas) > Cocher mitmproxy > Continuer.
 
 - Android : Paramètres > Sécurité > Chiffrement et identifiants > Installer un certicat > Certificat CA > Installer quand même.
+
+# Sécurité
+
+1. Renommer le fichier *.env.example* -> *.env*
+2. Passer l'*authentification=true* et modifier la valeur de *username* et *password*
+```sh
+authentification=true
+username="thomas"
+password="123456"
+```
 
 
 # Processus
@@ -66,10 +77,10 @@ data.ignore_connection = False
 3. Renommer la classe (Du même nom que le fichier pour s'y retrouver)
 
 4. Pour le debug le process
-    - Passer l'environnement en mode *production=false* dans **docker-entrypoint.sh** si c'est docker
+    - Passer l'environnement en mode *production=false* dans le fichier *.env*
     - Se rendre sur l'interface http://127.0.0.1:8301
     - Et pour rendre ça encore plus agréable j'utlise [cette extension](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld) 
-    - Chargée avec ce script (il est moche mais il marche) :
+    - Chargée avec ce script qui permet de recharger la page à chaque fois que le proxy redémarre (il est moche mais il marche)  :
 
 ```js
 const ws = new WebSocket(`ws://${window.location.host}/updates`);
@@ -103,8 +114,6 @@ const reload = () => {
 }
 ```
 
-4.  - Ça permet de recharger la page à chaque fois que le 
-    proxy redémarre
 
 5. Envoyer des messages de sortie avec *logging.error()* depuis le proxy pour bien les discerner car la console défile trop vite
 
