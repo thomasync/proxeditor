@@ -18,6 +18,8 @@ Mais le fichier _example.py est assez explicite et simple à comprendre, c'est l
 1. La commande pour lancer docker :
 ```
     docker compose up
+    OU
+    docker compose up -d // En background
 ```
 
 ⭐️ Le docker intègre les DNS de [AdGuard](https://adguard-dns.io/) pour supprimer toutes les pubs, même dans les applications
