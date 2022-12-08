@@ -1,6 +1,9 @@
 FROM nikolaik/python-nodejs:latest
 
-VOLUME /proxy/
+VOLUME /proxy
+WORKDIR /proxy
+
+ADD requirements.txt /proxy/
 
 EXPOSE 8301
 EXPOSE 8302
@@ -10,8 +13,8 @@ RUN apt-get update \
     && apt install -y --no-install-recommends gosu \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install mitmproxy
-RUN pip install tldextract
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 RUN npm install -g nodemon
 
-ENTRYPOINT ["/proxy/proxy.sh"]
+ENTRYPOINT ["./proxy.sh"]

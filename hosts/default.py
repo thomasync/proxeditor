@@ -15,7 +15,7 @@ class Default:
             data.ignore_connection = False
         else:
             # Set to false for debug
-            data.ignore_connection = True
+            data.ignore_connection = False
 
     @staticmethod
     def request(flow: mitmproxy.http.HTTPFlow) -> None:

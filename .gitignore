@@ -3,8 +3,15 @@ __pycache__
 .vscode
 .DS_Store
 .env
+.pytest_cache
+.certs
 
 hosts/*
 !hosts/__init__.py
 !hosts/default.py
 !hosts/_example.py
+!hosts/tests.py
+
+tests/*
+!tests/default.py
+!tests/tests.py

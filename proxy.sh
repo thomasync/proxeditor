@@ -16,8 +16,8 @@ fi
 
 if test "$production" = "true"; then
     echo "Run in production mode."
-    mitmdump -s proxy.py --listen-host 0.0.0.0 --listen-port 8302 --ssl-insecure $proxyauth
+    mitmdump -s proxy.py --listen-host 0.0.0.0 --listen-port 8302 --ssl-insecure --set confdir=/proxy/.certs $proxyauth
 else
     echo "Run in development mode."
-    nodemon --watch "**/*" --ext py,sh --exec "pkill -HUP mitmweb; mitmweb -s proxy.py --listen-host 0.0.0.0 --listen-port 8302 --web-host 0.0.0.0 --web-port 8301 --ssl-insecure --no-web-open-browser $proxyauth"
+    nodemon --watch "**/*" --ext py,sh --exec "pkill -HUP mitmweb; mitmweb -s proxy.py --listen-host 0.0.0.0 --listen-port 8302 --web-host 0.0.0.0 --web-port 8301 --ssl-insecure --set confdir=/proxy/.certs --no-web-open-browser $proxyauth"
 fi
