@@ -1,6 +1,5 @@
 import mitmproxy
 from tldextract import extract
-import logging 
 
 
 HOSTS_ADS = ['googleadservices.com', 'taboola.com', 'batch.com', 'googlesyndication.com', 'doubleclick.net', 'xiti.com']

@@ -5,6 +5,7 @@ __pycache__
 .env
 .pytest_cache
 .certs
+pytest.ini
 
 hosts/*
 !hosts/__init__.py
