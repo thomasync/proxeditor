@@ -1,20 +1,16 @@
-FROM nikolaik/python-nodejs:latest
+FROM python:3.9-slim
+
+EXPOSE 8301
+EXPOSE 8302
 
 VOLUME /proxy
 WORKDIR /proxy
 
 ADD requirements.txt /proxy/
 
-EXPOSE 8301
-EXPOSE 8302
-
-RUN useradd -mU mitmproxy
-RUN apt-get update \
-    && apt install -y --no-install-recommends gosu \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --upgrade pip
+RUN apt update
+RUN pip install --no-cache --upgrade pip setuptools
 RUN pip install -r requirements.txt
-RUN npm install -g nodemon
+
 
 ENTRYPOINT ["./proxy.sh"]

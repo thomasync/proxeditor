@@ -3,3 +3,4 @@ tldextract
 selenium
 webdriver-manager
 pytest
+nodemon-py-simple

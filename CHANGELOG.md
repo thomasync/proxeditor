@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.3] - 2022-12-11
+
+### Changed
+
+- Déplacement de la logiqe de chargement des modules dynamiquement de __init__ vers proxy.py
+- Remplacement de nodemon par nodemon-py-simple
+- Remplacement de l'image docker nikolaik/python-nodejs par python:3.9-slim. Afin de prendre en charge les processeurs arm mais aussi optimiser le temps de build
+
+
 ## [0.0.2] - 2022-12-06
 
 ### Added
